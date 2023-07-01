@@ -66,6 +66,7 @@ public class SecurityConfig  {
                                 .authorizeHttpRequests((req) -> req
                                                 .requestMatchers("/role/**","/class/**",
                                                 "/token/**","/student/**",
+                                                "/student-class/**",
                                                 "/section/**","/user/**").permitAll()
                                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                                                 .anyRequest().authenticated()

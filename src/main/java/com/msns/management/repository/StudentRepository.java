@@ -8,12 +8,8 @@ import com.msns.management.model.Student;
 
 public interface StudentRepository extends JpaRepository<Student,Integer>{
     
-    Student findByRollNumber(String roll);
-
+   
     List<Student> findByStudentName(String studentName);
 
-    List<Student> findAllByClassNameClassName(String className);
-
-    List<Student> findAllByClassNameClassNameAndSectionNameSectionName(String className,String section);
-
+    List<Student> findAllByStudentNameContainingIgnoreCase(String studentName);
 }

@@ -10,15 +10,22 @@ public interface StudentService {
     
     List<Student> getStudentByName(String studentName);
     
+    /**
+     * @deprecated
+     * @param className
+     * @return
+     */
     List<Student> getStudentsByClass(String className);
 
     List<Student> getStudentByClassAndSection(String className,String sectionName);
 
     List<Student> getAllStudents();
 
-    Student getStudentUpdate(Student student);
-
     List<Student> promoteStudents(String  className);
+
+    Student updateStudent(Student  student);
+
+    Student updatStudentBlob(Student student);
 
     
 

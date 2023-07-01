@@ -1,15 +1,12 @@
 package com.msns.management.model;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Section {
@@ -21,9 +18,8 @@ public class Section {
     @Column(unique = true)
     private String sectionName;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "sectionName")
-    private List<Student> students;
+    @OneToOne(mappedBy = "section")
+    private StudentClass studentClass;
 
     public int getSectionId() {
         return sectionId;

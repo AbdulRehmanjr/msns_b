@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -15,8 +15,6 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int studentId;
 
-    private String rollNumber;
-    
     private String studentName;
 
     private String fatherName;
@@ -33,12 +31,9 @@ public class Student {
     @Column(columnDefinition = "LONGBLOB",nullable = true)
     private byte[] picture;
 
-    @ManyToOne
-    private Classs className;
 
-    @ManyToOne
-    private Section sectionName;
-    
+    @OneToOne(mappedBy = "student")
+    private StudentClass studentClass;
 
     public int getStudentId() {
         return studentId;
@@ -103,30 +98,5 @@ public class Student {
     public void setPicture(byte[] picture) {
         this.picture = picture;
     }
-
-    public String getRollNumber() {
-        return rollNumber;
-    }
-
-    public void setRollNumber(String rollNumber) {
-        this.rollNumber = rollNumber;
-    }
-
-    public Classs getClassName() {
-        return className;
-    }
-
-    public void setClassName(Classs className) {
-        this.className = className;
-    }
-
-    public Section getSectionName() {
-        return sectionName;
-    }
-
-    public void setSectionName(Section sectionName) {
-        this.sectionName = sectionName;
-    }
-
 
 }
