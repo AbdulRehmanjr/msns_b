@@ -26,6 +26,13 @@ public class UserDetailService implements UserDetailsService{
     @Autowired
     private UserRepository userRepo;
 
+    /**
+     * This function loads user details by their email and returns a UserDetails object.
+     * 
+     * @param email The email parameter is the email address of the user that is being used to load the
+     * user details.
+     * @return The method is returning an instance of `UserDetails`.
+     */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -40,6 +47,14 @@ public class UserDetailService implements UserDetailsService{
                 response.getUserPassword(),getAuthorities(response.getRole()));
     }
 
+    /**
+     * The function "getAuthorities" returns a list of GrantedAuthority objects based on the provided
+     * Role object.
+     * 
+     * @param role The "role" parameter is an object of type "Role". It is used to determine the
+     * authority of the user.
+     * @return The method is returning a List of GrantedAuthority objects.
+     */
     private List<GrantedAuthority> getAuthorities(Role role) {
         List<GrantedAuthority> authorities = new ArrayList<>();
        

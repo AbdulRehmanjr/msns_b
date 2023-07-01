@@ -39,12 +39,27 @@ public class AuthenticateController {
     @Autowired
     private JwtUtil jwtUtil;
 
-
-   
+    /**
+     * The function generates a JWT token for a user based on their email and
+     * password.
+     * 
+     * @param request The request parameter is an object of type JwtRequest. It is
+     *                annotated with
+     *                @RequestBody, which means that it will be deserialized from
+     *                the request body JSON.
+     * @return The method is returning a ResponseEntity object. The response entity
+     *         contains the HTTP
+     *         status code and the body of the response. In this case, if the
+     *         authentication is successful, it
+     *         returns a ResponseEntity with HTTP status code 201 (CREATED) and the
+     *         body contains a JwtResponse
+     *         object which contains the generated token. If the authentication
+     *         fails, it returns a
+     *         ResponseEntity with HTTP status code 404 (NOT_FOUND)
+     */
     @PostMapping("/generate-token")
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest request) {
-        
-        
+
         try {
             authentication(request.getEmail(), request.getPassword());
         } catch (Exception e) {
@@ -60,6 +75,17 @@ public class AuthenticateController {
 
     }
 
+    /**
+     * The authentication function takes a username and password as input, attempts
+     * to authenticate the
+     * user using the authenticationManager, and logs the result.
+     * 
+     * @param username The username parameter is a String that represents the
+     *                 username entered by the
+     *                 user for authentication.
+     * @param password The password parameter is a String that represents the user's
+     *                 password.
+     */
     private void authentication(String username, String password) throws Exception {
 
         try {
@@ -75,11 +101,23 @@ public class AuthenticateController {
 
     }
 
+    /**
+     * This function retrieves the current user based on the email provided in the
+     * request body.
+     * 
+     * @param request The parameter "request" is of type JwtRequest, which is a
+     *                class that represents a
+     *                JSON Web Token (JWT) request. It is annotated
+     *                with @RequestBody, which means that the request
+     *                body will be automatically mapped to an instance of
+     *                JwtRequest.
+     * @return The method is returning a User object.
+     */
     @PostMapping("/current-user")
     public User getCurrentUser(@RequestBody JwtRequest request) {
-        
+
         User user = this.userService.getUserByEmail(request.getEmail());
-        
+
         return user;
     }
 }

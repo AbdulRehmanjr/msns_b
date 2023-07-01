@@ -1,5 +1,7 @@
 package com.msns.management.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +33,7 @@ public class Student {
     @Column(columnDefinition = "LONGBLOB",nullable = true)
     private byte[] picture;
 
-
+    @JsonIgnore
     @OneToOne(mappedBy = "student")
     private StudentClass studentClass;
 

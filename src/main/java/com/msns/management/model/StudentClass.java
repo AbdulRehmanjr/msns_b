@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -14,13 +14,13 @@ public class StudentClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int studentClassId;
 
-    @OneToOne
+    @ManyToOne
     private Classs classInfo;
 
-    @OneToOne
+    @ManyToOne
     private Section section;
 
-    private String rollNumber;
+    private String rollNumber="";
 
     @OneToOne
     private Student student;

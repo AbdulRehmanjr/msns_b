@@ -28,7 +28,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
-    
+    /**
+     * This function is a filter that extracts a JWT token from the request header,
+     * validates it, and
+     * sets the authentication details in the security context.
+     * 
+     * @param request     The HttpServletRequest object represents the HTTP request
+     *                    made by the client to
+     *                    the server. It contains information such as the request
+     *                    method, request URI, headers, and
+     *                    parameters.
+     * @param response    The `response` parameter is an instance of the
+     *                    `HttpServletResponse` class,
+     *                    which represents the response that will be sent back to
+     *                    the client. It is used to manipulate the
+     *                    response headers and body, set the status code, and send
+     *                    the response back to the client.
+     * @param filterChain The `filterChain` parameter is an object that represents
+     *                    the chain of filters
+     *                    that will be applied to the incoming request. It allows
+     *                    the filter to pass the request and
+     *                    response objects to the next filter in the chain.
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
