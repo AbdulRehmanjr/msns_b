@@ -140,43 +140,9 @@ public class UserServiceImp implements UserService {
         return user;
     }
 
-    /**
-     * The function getAllUsersByUserNameLike is deprecated and throws an
-     * UnsupportedOperationException.
-     * 
-     * @param userNameLike The parameter "userNameLike" is a String that represents
-     *                     a partial or
-     *                     complete username that is used to search for users.
-     * @return In this code snippet, an UnsupportedOperationException is being
-     *         thrown with the message
-     *         "Unimplemented method 'getAllUsersByUserNameLike'". This means that
-     *         the method is not
-     *         implemented and does not return anything.
-     */
-    @Override
-    @Deprecated
-    public List<User> getAllUsersByUserNameLike(String userNameLike) {
+ 
 
-        throw new UnsupportedOperationException("Unimplemented method 'getAllUsersByUserNameLike'");
-    }
-
-    /**
-     * The function getAllUsersByUserName is deprecated and throws an
-     * UnsupportedOperationException.
-     * 
-     * @param userName The parameter "userName" is a String that represents the
-     *                 username of a user.
-     * @return The method is not implemented and it throws an
-     *         UnsupportedOperationException. Therefore,
-     *         it does not return anything.
-     */
-    @Override
-    @Deprecated
-    public List<User> getAllUsersByUserName(String userName) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'getAllUsersByUserName'");
-    }
-
+    
     /**
      * The deleteUser function deletes a user from the database based on their id.
      * 
@@ -226,23 +192,7 @@ public class UserServiceImp implements UserService {
         return user;
     }
 
-    /**
-     * The function updateUserRole is marked as deprecated and throws an
-     * UnsupportedOperationException.
-     * 
-     * @param userId The userId parameter is an integer that represents the unique
-     *               identifier of the
-     *               user whose role needs to be updated.
-     * @return The method is not returning anything. It is throwing an
-     *         UnsupportedOperationException.
-     */
-    @Override
-    @Deprecated
-    public User updateUserRole(int userId) {
 
-        throw new UnsupportedOperationException("Unimplemented method");
-
-    }
 
     /**
      * The function updates a user in the database and returns the updated user.
@@ -257,24 +207,7 @@ public class UserServiceImp implements UserService {
         return this.userRepo.save(user);
     }
 
-    /**
-     * The function "resetPassword" is marked as deprecated and throws an exception
-     * indicating that it
-     * is not implemented.
-     * 
-     * @param otp   The otp parameter stands for "One-Time Password". It is a
-     *              temporary password that is
-     *              typically used for authentication or password reset purposes.
-     * @param email The email parameter is a string that represents the email
-     *              address of the user for
-     *              whom the password needs to be reset.
-     */
-    @Override
-    @Deprecated
-    public void resetPassword(int otp, String email) {
-        throw new UnsupportedOperationException("Unimplemented method");
-    }
-
+    
     /**
      * The function updates the password of a user by encoding it and saving it in
      * the database.
@@ -291,5 +224,6 @@ public class UserServiceImp implements UserService {
         user.setUserPassword(encoder.encode(user.getUserPassword()));
         return this.userRepo.save(user);
     }
+
 
 }

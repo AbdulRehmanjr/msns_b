@@ -144,30 +144,6 @@ public class UserController {
     }
 
     /**
-     * The function retrieves a list of users by their username and returns it.
-     * 
-     * @param username The username parameter is a String that represents the
-     *                 username of the user we
-     *                 want to search for.
-     * @return The method is returning a List of User objects.
-     */
-    @GetMapping("/all/{userName}")
-    public List<User> getUserByName(@PathVariable("userName") String username) {
-
-        List<User> result = this.userService.getAllUsersByUserNameLike(username);
-
-        if (result == null) {
-            log.error("Users not found");
-            return null;
-        }
-
-        log.info("User Found.");
-
-        return result;
-
-    }
-
-    /**
      * This function retrieves a user by their ID and returns a response entity with
      * the user
      * information if found, or a not found status if not found.

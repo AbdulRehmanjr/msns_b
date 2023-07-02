@@ -10,25 +10,18 @@ public interface UserService {
 
      User saveAdmin(User user);
 
-     List<User> getAllUsersByUserName(String userName);
-
      User getUserById(int userId);
 
      User getUserByIdEdit(int userId);
 
      User updateUser(User user);
-     
-     List<User> getAllUsersByUserNameLike(String userNameLike);
-    
+
      List<User> getAllUsers();
      
      User getUserByEmail(String email);
 
      void deleteUser(int id);
 
-     void resetPassword(int otp,String email);
-
      User updatePassword(User user);
 
-     User updateUserRole(int userId);
 }
