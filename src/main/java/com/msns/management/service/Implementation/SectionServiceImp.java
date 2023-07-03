@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class SectionServuceImp implements SectionService {
+public class SectionServiceImp implements SectionService {
 
     @Autowired
     private SectionRepository sectionRepo;

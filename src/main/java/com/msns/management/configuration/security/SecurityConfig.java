@@ -65,7 +65,7 @@ public class SecurityConfig  {
                 .cors((cor)-> cor.configurationSource(this.corsConfigurationSource()))
                                 .authorizeHttpRequests((req) -> req
                                                 .requestMatchers("/role/**","/class/**",
-                                                "/token/**","/student/**",
+                                                "/token/**","/student/**","/fee/**",
                                                 "/student-class/**","/teacher/**",
                                                 "/section/**","/user/**").permitAll()
                                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
@@ -85,7 +85,7 @@ public class SecurityConfig  {
 	CorsConfigurationSource corsConfigurationSource() {
 		   CorsConfiguration configuration = new CorsConfiguration();
                 configuration.setAllowedOrigins(Arrays.asList(origins));
-                configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+                configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE","PATCH"));
                 configuration.setAllowedHeaders(Arrays.asList("*"));
                 configuration.setAllowCredentials(true);
                 configuration.setExposedHeaders(Arrays.asList("x-Auth-Token", "Acess-Control-Allow-Origin"));

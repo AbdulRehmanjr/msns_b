@@ -80,6 +80,6 @@ public class TeacherController {
             log.error("No teacher found.");
             return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("Teacher Creation Error.");
         }
-        return ResponseEntity.status(HttpStatus.FOUND).body(teachers);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(teachers);
     }
 }

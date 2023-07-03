@@ -19,12 +19,13 @@ public class Teacher {
 
     private String fatherName;
 
-    
     private String cnic;
+
+    private String qualification;
 
     private String dateOfBirth;
 
-    private String contactPhone;
+    private String contactNo;
 
     private String address;
 
@@ -72,14 +73,6 @@ public class Teacher {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getContactPhone() {
-        return contactPhone;
-    }
-
-    public void setContactPhone(String contactPhone) {
-        this.contactPhone = contactPhone;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -94,6 +87,22 @@ public class Teacher {
 
     public void setPicture(byte[] picture) {
         this.picture = picture;
+    }
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
     }
 
 
