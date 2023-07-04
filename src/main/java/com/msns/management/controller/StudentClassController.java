@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -71,6 +72,26 @@ public class StudentClassController {
             return ResponseEntity.status(201).body(response);
         }
 
+        return ResponseEntity.status(404).body("Failed to get students of class");
+
+    }
+
+    /**
+     * The function "payFee" is a PATCH request mapping that takes a StudentClass object as a request
+     * body and returns a ResponseEntity with either a successful response containing the updated
+     * student information or a failed response if the students of the class cannot be retrieved.
+     * 
+     * @param student The "student" parameter is an object of the class StudentClass. It is passed as a
+     * request body in the PATCH request to the "/payfee" endpoint.
+     * @return The method is returning a ResponseEntity object.
+     */
+    @PatchMapping("/payfee")
+    ResponseEntity<?> payFee(@RequestBody StudentClass student) {
+
+        StudentClass response = this.scService.payFee(student);
+        if (response != null) {
+            return ResponseEntity.status(201).body(response);
+        }
         return ResponseEntity.status(404).body("Failed to get students of class");
 
     }

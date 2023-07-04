@@ -152,4 +152,16 @@ public class StudentClassServiceImp implements StudentClassService {
         return response;
     }
 
+    @Override
+    public StudentClass payFee(StudentClass student) {
+        
+        student.setPaid(true);
+        StudentClass response = this.scRepo.save(student);
+        if (response != null) {
+            log.info("Fee Paid for student {} Father Name {}.",student.getStudent().getStudentName(),student.getStudent().getFatherName());
+            return response;
+        }
+        return null;
+    }
+
 }

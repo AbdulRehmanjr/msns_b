@@ -25,6 +25,12 @@ public class StudentClass {
     @OneToOne
     private Student student;
 
+    @ManyToOne
+    private Fee fee;
+
+    private boolean isPaid=false;
+
+
     public Student getStudent() {
         return student;
     }
@@ -63,6 +69,22 @@ public class StudentClass {
 
     public void setRollNumber(String rollNumber) {
         this.rollNumber = rollNumber;
+    }
+
+    public Fee getFee() {
+        return fee;
+    }
+
+    public void setFee(Fee fee) {
+        this.fee = fee;
+    }
+
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean isPaid) {
+        this.isPaid = isPaid;
     }
 
 }

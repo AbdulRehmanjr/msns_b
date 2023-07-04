@@ -36,4 +36,13 @@ public interface StudentClassService {
      */
     List<StudentClass> getAllStudentByClass(int classId);
 
+    /**
+     * The function "payFee" takes a student object as input and returns the updated student object
+     * after the fee has been paid.
+     * 
+     * @param student An object of the StudentClass class, representing a student.
+     * @return an object of type StudentClass.
+     */
+    StudentClass payFee(StudentClass student);
+
 }
